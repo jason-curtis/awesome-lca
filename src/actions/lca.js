@@ -56,9 +56,17 @@ function fetchOrCreateLcaIfNeeded(lcaId) {
     };
 }
 
+function fetchLcaByAmazonId(amazonId) {
+    return () => { // (dispatch, getState)
+        console.log(`TODO: hook in to real data for ${amazonId}`);
+        return Promise.resolve();
+    };
+}
+
 export {
     REQUEST_LCA,
     RECEIVE_LCA,
     fetchOrCreateLcaIfNeeded,
     createLca,
+    fetchLcaByAmazonId,
 };

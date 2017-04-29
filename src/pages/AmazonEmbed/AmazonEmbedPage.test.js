@@ -1,13 +1,13 @@
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 
-import LcaPage from './LcaPage';
+import AmazonEmbedPage from './AmazonEmbedPage';
 
 
 describe('AmazonEmbedPage', () => {
     it('successfully renders', () => {
         const renderer = TestUtils.createRenderer();
-        renderer.render(<LcaPage />);
+        renderer.render(<AmazonEmbedPage />);
         const result = renderer.getRenderOutput();
         expect(result).toBeTruthy();
     });

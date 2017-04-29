@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import { syncHistoryWithStore } from 'react-router-redux';
 
 import store from '../store';
-import { fetchOrCreateLcaIfNeeded } from '../actions/lca';
+import { fetchLcaByAmazonId, fetchOrCreateLcaIfNeeded } from '../actions/lca';
 
 function errorLoading(err) {
     console.error('Dynamic page loading failed', err);
@@ -40,6 +40,23 @@ export default () => (
                     (location) => {
                         const { lcaId } = location.params;
                         store.dispatch(fetchOrCreateLcaIfNeeded(lcaId));
+                    }
+                }
+            />
+            <Route
+                exact
+                path="amazon-embed/:amazonId"
+                getComponent={
+                  (location, cb) => {
+                      System.import('pages/AmazonEmbed')
+                          .then(loadRoute(cb))
+                          .catch(errorLoading);
+                  }
+                }
+                onEnter={
+                    (location) => {
+                        const { amazonId } = location.params;
+                        store.dispatch(fetchLcaByAmazonId(amazonId));
                     }
                 }
             />
