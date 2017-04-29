@@ -2,11 +2,11 @@ import { PropTypes } from 'react';
 import partsPropType from './part';
 
 export default PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
+    id: PropTypes.string,
+    name: PropTypes.string,
     amazonId: PropTypes.string,
-    unit: PropTypes.string.isRequired,
-    source: PropTypes.string.isRequired,
-    carbonCostPerUnit: PropTypes.number.isRequired,
+    unit: PropTypes.string,
+    source: PropTypes.string,
+    carbonCostPerUnit: PropTypes.number,
     parts: PropTypes.arrayOf(partsPropType),
 });

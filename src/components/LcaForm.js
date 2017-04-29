@@ -29,9 +29,9 @@ const LcaForm = ({ lca, handleSubmit, submitting }) => {
                 </a>
             </div>
 
-            <span>
-                {carbonCostPerUnit} g CO2e per <Field name="unit" type="text" component={renderField} label="Unit" />
-            </span>
+            <div className={styles.costContainer}>
+                <span className={styles.cost}>{carbonCostPerUnit}</span> g CO2e per <Field name="unit" type="text" component={renderField} label="Unit" />
+            </div>
             <PartsList parts={parts} />
             <div>
                 <button type="submit" disabled={submitting}>Save</button>

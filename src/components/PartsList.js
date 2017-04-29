@@ -17,14 +17,16 @@ class PartsList extends React.Component {
             {
                 addlParts: this.state.addlParts.concat([{
                     id: '123dasf3r2',
-                    name: 'milk',
+                    name: this.itemAdd.value,
                     carbonCostPerUnit: 100,
-                    quantity: 4,
+                    quantity: Number(this.itemQuantity.value),
                     unit: 'oz',
                     source: 'openDB',
                 }])
             }
         );
+        this.itemAdd.value = '';
+        this.itemQuantity.value = '';
     }
     render() {
         const allParts = this.props.parts.concat(this.state.addlParts);
@@ -49,17 +51,17 @@ class PartsList extends React.Component {
                     <tr>
                         <th>Ingredient</th>
                         <th>Quantity</th>
-                        <th>Cost (lb. CO2e)</th>
+                        <th>Cost (g CO2e)</th>
                     </tr>
                 </thead>
                 <tbody>
                     {partsElements}
                     <tr>
                         <td>
-                            <input placeholder="+ add item" />
+                            <input placeholder="+ add item" ref={(ref) => { this.itemAdd = ref; }} />
                         </td>
                         <td>
-                            <input placeholder="quantity" />
+                            <input placeholder="quantity" ref={(ref) => { this.itemQuantity = ref; }} />
                         </td>
                         <td>
                             <button type="submit" onClick={this.handleAdd}>Calculate</button>

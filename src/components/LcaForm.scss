@@ -16,3 +16,11 @@ $gray: #e2e2e2;
     margin: 1em;
   }
 }
+.costContainer {
+  padding: 1em;
+  background-color: green;
+  .cost {
+    font-weight: bold;
+    font-size: 18px;
+  }
+}
