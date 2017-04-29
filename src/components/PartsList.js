@@ -32,8 +32,14 @@ const PartsList = ({ parts }) => {
             <tbody>
                 {partsElements}
                 <tr>
-                    <td colSpan="3">
-                        + add item
+                    <td>
+                        <input placeholder="+ add item" />
+                    </td>
+                    <td>
+                        <input placeholder="quantity" />g
+                    </td>
+                    <td>
+                        <button type="submit">Calculate</button>
                     </td>
                 </tr>
             </tbody>

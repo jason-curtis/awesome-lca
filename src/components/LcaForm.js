@@ -23,7 +23,7 @@ const LcaForm = ({ lca, handleSubmit, submitting }) => {
             )</h1>
             <div>source: <Field name="source" type="text" component={renderField} label="Source" /></div>
             <div>
-                <Field name="amazonId" type="text" component={renderField} label="Amazon ID" />
+                amazon ID: <Field name="amazonId" type="text" component={renderField} label="Amazon ID" />
                 <a href={`https://amazon.com/${lca.amazonId}`}>
                     View on Amazon
                 </a>

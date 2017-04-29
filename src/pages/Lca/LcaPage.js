@@ -8,22 +8,11 @@ import LcaForm from '../../components/LcaForm';
 const LcaPage = ({
     loading,
     lca
-}) => {
-    const {
-        name,
-        amazonId,
-        quantity,
-        unit,
-        source,
-        parts,
-    } = lca;
-
-    return (
-            loading ? <Loading /> : (<div>
-                <LcaForm initialValues={lca} lca={lca} />
-            </div>)
-    );
-};
+}) => (
+    loading ? <Loading /> : (<div>
+        <LcaForm initialValues={lca} lca={lca} />
+    </div>)
+);
 
 
 LcaPage.propTypes = {
