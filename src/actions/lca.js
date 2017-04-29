@@ -1,7 +1,8 @@
 import createLcaApiCall from '../apiCalls/createOrUpdateLca';
 import fetchLcaApiCall from '../apiCalls/fetchLca';
+import fetchLcaByAmazonIdApiCall from '../apiCalls/fetchLcaByAmazonId';
 
-const REQUEST_LCA = 'REQUEST_LCA';
+
 const RECEIVE_LCA = 'RECEIVE_LCA';
 
 
@@ -9,14 +10,6 @@ function receiveLcaAction(lca) {
     return {
         type: RECEIVE_LCA,
         payload: lca,
-    };
-}
-function requestLcaAction(lcaId) {
-    return {
-        type: REQUEST_LCA,
-        payload: {
-            lcaId
-        },
     };
 }
 
@@ -32,8 +25,6 @@ function createLca(lca) {
 
 function fetchOrCreateLca(lcaId) {
     return (dispatch) => {
-        dispatch(requestLcaAction(lcaId));
-
         fetchLcaApiCall(lcaId)
             .then(lca => dispatch(receiveLcaAction(lca)))
             .catch((e) => {
@@ -60,14 +51,14 @@ function fetchOrCreateLcaIfNeeded(lcaId) {
 }
 
 function fetchLcaByAmazonId(amazonId) {
-    return () => { // (dispatch, getState)
-        console.log(`TODO: hook in to real data for ${amazonId}`);
+    return (dispatch) => {
+        fetchLcaByAmazonIdApiCall(amazonId)
+            .then(lca => dispatch(receiveLcaAction(lca)));
         return Promise.resolve();
     };
 }
 
 export {
-    REQUEST_LCA,
     RECEIVE_LCA,
     fetchOrCreateLcaIfNeeded,
     createLca,

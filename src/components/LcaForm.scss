@@ -1,3 +1,18 @@
+$gray: #e2e2e2;
+
 .fieldContainer {
   display: inline-block;
+  input {
+    text-overflow: ellipsis;
+    font-size: inherit;
+    border: none;
+    text-align: center;
+    background-color: $gray;
+    &:active {
+      background-color: lighten($gray, 0.2);
+    }
+  }
+  div {
+    margin: 1em;
+  }
 }

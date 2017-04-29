@@ -8,10 +8,7 @@ export default (
     const { type, payload } = action;
     switch (type) {
     case RECEIVE_LCA: {
-        return {
-            ...state,
-            [payload.id]: payload
-        };
+        return payload;
     }
     default:
         return state;

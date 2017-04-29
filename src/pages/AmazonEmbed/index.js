@@ -2,15 +2,13 @@ import { connect } from 'react-redux';
 
 import AmazonEmbedPage from './AmazonEmbedPage';
 
-const mapStateToProps = (state, ownProps) => {
-    const { amazonId } = ownProps.params;
+const mapStateToProps = state => (
+    {
+        loading: !state.lca.id,
+        lca: state.lca,
+    }
+);
 
-    return {
-        loading: false, // well, technically it's true, but TODO
-        amazonId
-    };
-};
+const WrappedAmazonEmbedPage = connect(mapStateToProps)(AmazonEmbedPage);
 
-const WrappedLcaPage = connect(mapStateToProps)(AmazonEmbedPage);
-
-export default WrappedLcaPage;
+export default WrappedAmazonEmbedPage;

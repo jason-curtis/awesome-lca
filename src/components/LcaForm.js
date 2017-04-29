@@ -19,7 +19,7 @@ const LcaForm = ({ lca, handleSubmit, submitting }) => {
     return (
         <form onSubmit={handleSubmit}>
             <h1>LCA for <Field name="name" type="text" component={renderField} label="Name" /> (
-                 {lca.unit}
+                 <Field name="unit" type="text" component={renderField} label="unit" />
             )</h1>
             <div>source: <Field name="source" type="text" component={renderField} label="Source" /></div>
             <div>
