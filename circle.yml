@@ -1,0 +1,29 @@
+# https://circleci.com/docs/1.0/yarn/
+
+machine:
+  environment:
+    PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
+
+dependencies:
+  override:
+    - nvm use 6 && yarn
+  cache_directories:
+    - ~/.cache/yarn
+
+test:
+  override:
+    - nvm use 6 && yarn test
+
+deployment:
+  prod:
+    branch: master
+    commands:
+      - nvm use 6 && yarn run build
+#      - aws s3 sync dist/ s3://uprope-production-static-site/comps-ui/
+      # index.html is the only thing that can't be cache-busted by changing its name; manually invalidate
+      - aws configure set preview.cloudfront true
+#      - aws cloudfront create-invalidation --distribution-id E1LOVDSEYTCMDR --paths /index.html
+  dryrun: # Same as prod except don't actually publish anything to s3
+    branch: /.*/
+    commands:
+      - nvm use 6 && yarn run build

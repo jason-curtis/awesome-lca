@@ -1,0 +1,12 @@
+$dark: black;
+$white: #ffffff;
+$mainColor: #F59127;
+$mainColorHover: hsl(30, 88%, 40%);
+$lightBackground: #F5F3F0;
+$shadow: hsl(36, 10%, 40%);
+
+$buttonGradient: linear-gradient(
+  to bottom,
+  lighten( $lightBackground, 5% ),
+  darken( $lightBackground, 5% )
+)

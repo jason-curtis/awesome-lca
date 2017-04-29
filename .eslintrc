@@ -1,0 +1,35 @@
+extends:
+  - eslint-config-airbnb
+  - plugin:import/errors
+  - plugin:import/warnings
+
+parser:
+  babel-eslint
+
+settings:
+  ecmascript: 6
+
+plugins:
+  - jasmine
+
+ecmaFeatures:
+  jsx: true
+  modules: true
+
+env:
+  browser: true
+  jasmine: true
+
+
+rules:
+  comma-dangle: [1, only-multiline]
+  linebreak-style: 0
+  no-console: 0
+  react/jsx-filename-extension: 0 # everything goes in .js files, no .jsx necessary
+  indent: [2, 4] # indent with 4 spaces always
+  react/jsx-indent: [2, 4] # indent 4 spaces even in jsx
+  react/jsx-indent-props: [2, 4] # indent 4 spaces even in jsx
+  jasmine/valid-expect: 1
+  jasmine/missing-expect: 1
+  jasmine/no-suite-dupes: 2
+  jasmine/no-spec-dupes: 2
