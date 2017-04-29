@@ -5,7 +5,7 @@ import fakeLca from './fakeLca';
 
 
 function fetchLca(lcaId) {
-    return sleep(1000) // simulate server latency
+    return sleep(2000) // simulate server latency
         .then(
             () => fakeLca(lcaId)
         );

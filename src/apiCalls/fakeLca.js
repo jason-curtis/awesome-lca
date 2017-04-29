@@ -4,7 +4,7 @@ export default id => ({
     amazonId: 'B00YUJOD1E',
     unit: 'bottle',
     source: 'AwesomeLCA Team',
-    carbonCostPerUnit: 50.63,
+    carbonCostPerUnit: 3600,
     parts: [
         {
             id: '123dasf3r2',
