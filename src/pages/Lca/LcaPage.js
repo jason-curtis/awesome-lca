@@ -2,28 +2,28 @@ import React, { PropTypes } from 'react';
 
 import lcaPropType from '../../propTypes/lca';
 import Loading from '../../components/Loading';
+import LcaForm from '../../components/LcaForm';
 
 
 const LcaPage = ({
     loading,
-    lca: {
+    lca
+}) => {
+    const {
         name,
-        amazonUrl,
+        amazonId,
         quantity,
         unit,
         source,
-        inputs,
-    }
-}) => (
-        loading ? <Loading /> : (<div>
-            <h1>LCA for {name} ({quantity} {unit})</h1>
-            <div>source: {source}</div>
-            <div><a href={`https://amazon.com/${amazonUrl}`}>
-                View product on Amazon
-            </a></div>
-            {JSON.stringify(inputs)}
-        </div>)
+        parts,
+    } = lca;
+
+    return (
+            loading ? <Loading /> : (<div>
+                <LcaForm initialValues={lca} lca={lca} />
+            </div>)
     );
+};
 
 
 LcaPage.propTypes = {

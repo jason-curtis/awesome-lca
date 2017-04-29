@@ -36,7 +36,10 @@ function fetchOrCreateLca(lcaId) {
 
         fetchLcaApiCall(lcaId)
             .then(lca => dispatch(receiveLcaAction(lca)))
-            .catch(() => dispatch(createLca({ id: lcaId })));
+            .catch((e) => {
+                console.log('here I am', e);
+                // return dispatch(createLca({ id: lcaId }));
+            });
     };
 }
 
