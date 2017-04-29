@@ -23,6 +23,7 @@ function render(lca) {
                     {lca.carbonCostPerUnit} CO2e
                 </li>
                 <li><b>{'Source: '}</b>{lca.source}</li>
+                <li><a href={`https://lca.party/lca/${lca.id}`}>Full LCA details</a></li>
             </ul>
         </div>
     );
