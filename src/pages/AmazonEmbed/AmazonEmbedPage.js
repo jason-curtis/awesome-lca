@@ -2,19 +2,37 @@ import React, { PropTypes } from 'react';
 
 import Loading from '../../components/Loading';
 import lcaPropType from '../../propTypes/lca';
+import styles from './AmazonEmbedPage.scss';
 
+function renderLoading() {
+    return (
+        <div className={styles.amazonEmbedRoot}>
+            <Loading />
+        </div>
+    );
+}
+
+function render(lca) {
+    return (
+        <div className={styles.amazonEmbedRoot}>
+            <h1 className={styles.title}>SuperAwesomeLCAParty</h1>
+            <ul>
+                <li><b>{'Name: '}</b>{lca.name}</li>
+                <li>
+                    <b>{`Carbon Cost per  ${lca.unit} : `}</b>
+                    {lca.carbonCostPerUnit} CO2e
+                </li>
+                <li><b>{'Source: '}</b>{lca.source}</li>
+            </ul>
+        </div>
+    );
+}
 
 const AmazonEmbedPage = ({
     loading,
     lca
 }) => (
-        loading ? <Loading /> : (<div>
-            <h1>fancy embed thing for ASID={lca.amazonId}</h1>
-            Did you know you could buy this product on <a href={`https://smile.amazon.com/dp/${lca.amazonId}`}>
-                Amazon Smile
-            </a> and donate to a cause?
-            {JSON.stringify(lca)}
-        </div>)
+        loading ? renderLoading() : render(lca)
     );
 
 
@@ -22,6 +40,7 @@ AmazonEmbedPage.propTypes = {
     loading: PropTypes.bool.isRequired,
     lca: lcaPropType,
 };
+
 
 AmazonEmbedPage.defaultProps = {
     lca: {}
