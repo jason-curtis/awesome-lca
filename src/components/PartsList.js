@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-// import Autocomplete from 'react-autocomplete';
 
 import partProp from '../propTypes/part';
 import styles from './PartsList.scss';
@@ -34,17 +33,7 @@ const PartsList = ({ parts }) => {
                 {partsElements}
                 <tr>
                     <td colSpan="3">
-                        <input type="text" list="browsers" />
-                        {/*<Autocomplete*/}
-                            {/*name="newElement"*/}
-                            {/*items={['coffee', 'water', 'heating with electric kettle']}*/}
-                            {/*value=""*/}
-                            {/*inputProps={{*/}
-                                {/*placeholder: '+ add ingredient'*/}
-                            {/*}}*/}
-                            {/*getItemValue={item => (item)}*/}
-                            {/*renderItem={item => (<div>{item}</div>)}*/}
-                        {/*/>*/}
+                        + add item
                     </td>
                 </tr>
             </tbody>
