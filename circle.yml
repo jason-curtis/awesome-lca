@@ -22,7 +22,7 @@ deployment:
       - aws s3 sync dist/ s3://lca-production-static-site/
       # index.html is the only thing that can't be cache-busted by changing its name; manually invalidate
       - aws configure set preview.cloudfront true
-#      - aws cloudfront create-invalidation --distribution-id E1LOVDSEYTCMDR --paths /index.html
+      - aws cloudfront create-invalidation --distribution-id E3S8KNCW3G6S9I --paths /index.html
   dryrun: # Same as prod except don't actually publish anything to s3
     branch: /.*/
     commands:
