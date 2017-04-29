@@ -8,6 +8,8 @@ function standardFetch(method, url, data) {
             method,
             headers: {
                 'Content-Type': 'application/json',
+                'cache-control': 'no-cache',
+                'x-api-key': 'tm1PqaVYof9UyjhrehrN26dqyqDHKNA65fyh9kQZ',
             },
             body: JSON.stringify(data),
         },
